@@ -12,14 +12,14 @@ module Rswag
         if RAILS_VERSION < 5
           send(
             request[:verb],
-            request[:path],
+            URI.escape(request[:path]),
             request[:payload],
             request[:headers]
           )
         else
           send(
             request[:verb],
-            request[:path],
+            URI.escape(request[:path]),
             params: request[:payload],
             headers: request[:headers]
           )
